@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Elon Musk Grant Program</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            min-height: 100vh;
+        }
+
+        /* Navigation - Same as homepage */
+        nav {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #87ceeb;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 8px 40px rgba(30,60,114,0.10);
+            margin-top: 110px;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: #1e3c72;
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            color: #2a5298;
+            font-size: 1.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.7rem;
+            color: #444;
+            line-height: 1.7;
+        }
+
+        p {
+            color: #444;
+            font-size: 1.08rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .effective-date {
+            text-align: right;
+            color: #888;
+            font-size: 0.98rem;
+            margin-top: -1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        a {
+            color: #1e3c72;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #f7931e;
+        }
+
+        /* Footer - Same as homepage */
+        .footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 0;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #87ceeb;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: linear-gradient(135deg, #1e3c72, #2a5298);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.show {
+                display: flex;
+            }
+            
+            .nav-links li {
+                text-align: center;
+                padding: 0.5rem 0;
+            }
+
+            .main-container {
+                padding: 2rem 1.5rem;
+                margin-top: 90px;
+                margin-left: 1rem;
+                margin-right: 1rem;
+                border-radius: 16px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            ul {
+                margin-left: 1.5rem;
+            }
+
+            .footer-links {
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-container {
+                padding: 1.5rem 1rem;
+                margin-left: 0.5rem;
+                margin-right: 0.5rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">🚀 Elon Musk Grant</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="testimonies.html">Testimonies</a></li>
+                <li><a href="privacy-policy.html" style="color: #87ceeb;">Privacy Policy</a></li>
+            </ul>
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <h1>Privacy Policy</h1>
+        <p class="effective-date">Effective Date: July 31, 2025</p>
+        
+        <p>Your privacy is important to us. This Privacy Policy explains how the Elon Musk Grant Program collects, uses, protects, and shares your personal information when you use our website and services.</p>
+        
+        <h2>1. Information We Collect</h2>
+        <ul>
+            <li><strong>Personal Information:</strong> Name, email address, phone number, country, and other details you provide when applying for a grant or contacting us.</li>
+            <li><strong>Application Data:</strong> Project details, documents, and supporting materials submitted as part of your grant application.</li>
+            <li><strong>Usage Data:</strong> Information about how you use our website, including IP address, browser type, device information, and pages visited.</li>
+        </ul>
+        
+        <h2>2. How We Use Your Information</h2>
+        <ul>
+            <li>To process and review your grant application.</li>
+            <li>To communicate with you regarding your application or inquiries.</li>
+            <li>To improve our website, services, and user experience.</li>
+            <li>To comply with legal obligations and protect our rights.</li>
+        </ul>
+        
+        <h2>3. How We Share Your Information</h2>
+        <ul>
+            <li>We do <strong>not</strong> sell or rent your personal information to third parties.</li>
+            <li>We may share your information with trusted partners and service providers who assist us in operating our website and processing applications, under strict confidentiality agreements.</li>
+            <li>We may disclose information if required by law or to protect the safety, rights, or property of our users or the public.</li>
+        </ul>
+        
+        <h2>4. Data Security</h2>
+        <p>We implement industry-standard security measures to protect your information from unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet is 100% secure.</p>
+        
+        <h2>5. Cookies & Tracking</h2>
+        <p>We use cookies and similar technologies to enhance your experience, analyze site usage, and improve our services. You can control cookies through your browser settings.</p>
+        
+        <h2>6. Your Rights</h2>
+        <ul>
+            <li>You may request access to, correction, or deletion of your personal information at any time.</li>
+            <li>You may opt out of receiving non-essential communications from us.</li>
+        </ul>
+        
+        <h2>7. Children's Privacy</h2>
+        <p>Our services are not directed to children under 16. We do not knowingly collect personal information from children under 16.</p>
+        
+        <h2>8. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated effective date.</p>
+        
+        <h2>9. Contact Us</h2>
+        <p>If you have any questions or concerns about this Privacy Policy or your data, please contact us at <a href="mailto:privacy@elonmuskgrant.org">elonmuskgrantpromotion@gmail.com</a>.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="testimonies.html">Testimonies</a>
+                <a href="privacy-policy.html" style="color: #87ceeb;">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+            </div>
+            <p>&copy; 2024 Elon Musk Grant Program. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">
+                Follow us: 
+                <a href="#" style="color: #87ceeb; text-decoration: none;">X (Twitter)</a> | 
+                <a href="#" style="color: #87ceeb; text-decoration: none;">Instagram</a> | 
+                <a href="#" style="color: #87ceeb; text-decoration: none;">Facebook</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle function
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('show');
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('show');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const nav = document.querySelector('nav');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (!nav.contains(e.target) && navLinks.classList.contains('show')) {
+                navLinks.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

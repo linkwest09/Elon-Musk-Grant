@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Elon Musk Grant Program</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        .nav-links a:hover {
+            color: #87ceeb;
+        }
+        .menu-toggle {
+            display: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        .language-selector {
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        /* Page Content */
+        .page-content {
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+            padding: 4rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 20px;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Content with Image */
+        .content-with-image {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin: 4rem 0;
+        }
+
+        .image-placeholder {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #1e3c72;
+        }
+
+        .image-placeholder p {
+            color: #1e3c72;
+            font-weight: 600;
+        }
+
+        /* Mission Section */
+        .mission-section {
+            background: #f8f9fa;
+            padding: 4rem 0;
+            border-radius: 20px;
+            margin: 3rem 0;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .mission-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .mission-card h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            margin: 4rem 0;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            border-left: 5px solid #1e3c72;
+            border-radius: 0 15px 15px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+        }
+
+        .timeline-year {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-item p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        /* Team Section */
+        .team-section {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 4rem 0;
+            border-radius: 20px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            background: rgba(255,255,255,0.1);
+            padding: 2.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .team-member h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .team-member .role {
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+        .team-member .bio {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: #f8f9fa;
+            padding: 4rem 0;
+            border-radius: 20px;
+            margin: 3rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #87ceeb;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: linear-gradient(135deg, #1e3c72, #2a5298);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            .nav-links.show {
+                display: flex;
+            }
+            .nav-links li {
+                text-align: center;
+                padding: 0.5rem 0;
+            }
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            .content-with-image {
+                grid-template-columns: 1fr;
+            }
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">🚀 Elon Musk Grant</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" style="color: #87ceeb;">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="testimonies.html">Testimonies</a></li>
+            </ul>
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        </div>
+    </nav>
+
+
+    <div class="page-content">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>About the Elon Musk Grant Program</h1>
+                <p>Empowering innovators and change-makers worldwide through direct financial support and mentorship</p>
+            </div>
+
+            <!-- Vision Section -->
+            <div class="content-with-image">
+                <div>
+                    <h2 style="color: #1e3c72; margin-bottom: 1.5rem; font-size: 2.5rem;">Our Vision for the Future</h2>
+                    <p style="font-size: 1.2rem; margin-bottom: 1.5rem; color: #666;">
+                        Elon Musk's Global Grant Program was born from a revolutionary belief: extraordinary ideas shouldn't be limited by financial constraints. In a world where innovation drives human progress, we're committed to identifying and supporting the next generation of entrepreneurs, inventors, and visionaries who dare to think differently.
+                    </p>
+                    <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: #666;">
+                        From renewable energy startups in rural Africa to AI research in Silicon Valley, our grants have catalyzed breakthrough innovations that are actively shaping our future. We don't just provide funding – we provide opportunity, mentorship, and a global network of like-minded innovators.
+                    </p>
+                    <p style="font-size: 1.1rem; color: #666;">
+                        Our program focuses on three core areas: sustainable technology, space exploration innovations, and AI-driven solutions that benefit humanity. Every grant recipient becomes part of a larger movement toward creating a better future for all.
+                    </p>
+                </div>
+               <div class="image-placeholder" style="
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWeNtvDV5ryGBH8BH7FfBGIAMU4c51Z_tZFg&s');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 350px;
+    border: none;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+">
+</div>
+
+            </div>
+
+            <!-- Mission Section -->
+            <section class="mission-section">
+                <div class="container">
+                    <h2 style="text-align: center; color: #1e3c72; margin-bottom: 2rem; font-size: 2.5rem;">Our Mission & Values</h2>
+                    <p style="text-align: center; font-size: 1.3rem; margin-bottom: 3rem; color: #666; max-width: 800px; margin-left: auto; margin-right: auto;">
+                        "To democratize access to capital for innovative thinkers and empower communities globally through direct financial support, cutting-edge mentorship, and collaborative innovation networks."
+                    </p>
+                    <div class="mission-grid">
+                        <div class="mission-card">
+                            <h3>🌍 Global Impact</h3>
+                            <p>Supporting innovators in all 195 countries across every continent, with special focus on underrepresented regions and emerging markets.</p>
+                        </div>
+                        <div class="mission-card">
+                            <h3>⚡ Rapid Innovation</h3>
+                            <p>Fast-track processing with applications reviewed within 3-5 business days, ensuring innovators can act quickly on time-sensitive opportunities.</p>
+                        </div>
+                        <div class="mission-card">
+                            <h3>🤝 Collaborative Network</h3>
+                            <p>Connecting grant recipients with industry experts, successful entrepreneurs, and fellow innovators for ongoing support and collaboration.</p>
+                        </div>
+                        <div class="mission-card">
+                            <h3>🔬 Science-Driven</h3>
+                            <p>Prioritizing evidence-based innovations in sustainable technology, space exploration, and artificial intelligence applications.</p>
+                        </div>
+                        <div class="mission-card">
+                            <h3>💡 Future-Focused</h3>
+                            <p>Investing in technologies and solutions that address humanity's greatest challenges: climate change, space exploration, and AI safety.</p>
+                        </div>
+                        <div class="mission-card">
+                            <h3>🎯 Merit-Based</h3>
+                            <p>Evaluating applications purely on innovation potential, impact, and feasibility, regardless of applicant background or location.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Program History -->
+            <div style="margin: 4rem 0;">
+                <div class="content-with-image" style="margin-bottom: 3rem;">
+                    <div class="image-placeholder" style="
+    background-image: url('https://cdn.educba.com/academy/wp-content/uploads/2024/02/Biography-of-Elon-Musk.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 300px;
+    border: none;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+">
+</div>
+                      <div>
+                        <h2 style="color: #1e3c72; margin-bottom: 1.5rem; font-size: 2.2rem;">The Beginning of a Revolution</h2>
+                        <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: #666;">
+                            The idea for the Global Grant Program emerged during a 2019 SpaceX launch, when Elon Musk witnessed firsthand how financial barriers were preventing brilliant minds from pursuing groundbreaking research. What started as a personal mission to support 100 innovators has evolved into the world's largest private innovation funding initiative.
+                        </p>
+                        <p style="font-size: 1.1rem; color: #666;">
+                            The program officially launched in January 2020 with an initial commitment of $100 million, making it the largest single private grant program in history. The response was overwhelming – within the first month, we received over 50,000 applications from every corner of the globe.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="timeline">
+                <h2 style="text-align: center; color: #1e3c72; margin-bottom: 3rem; font-size: 2.5rem;">Program Milestones</h2>
+                <div class="timeline-item">
+                    <div class="timeline-year">2020 - Launch Year</div>
+                    <p>Elon Musk announces the Global Grant Initiative during a Tesla shareholders meeting, committing $100M to support global innovation. First grants awarded to clean energy and educational technology projects across 25 countries.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2021 - Rapid Expansion</div>
+                    <p>Program scales to 50 countries with first 10,000 grants distributed. Launch of specialized tracks for AI research, renewable energy, and space technology. Partnership established with leading universities worldwide.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2022 - Global Reach</div>
+                    <p>Major expansion to include developing nations. Total funding increased to $250M. Introduction of mentorship program connecting recipients with industry leaders. Launch of innovation labs in key global cities.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2023 - Innovation Hubs</div>
+                    <p>Reached 50,000 recipients across 120 countries. Opened physical innovation centers in New York, London, Tokyo, and Nairobi. First annual Global Innovation Summit attended by 5,000+ participants.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2024 - Historic Milestone</div>
+                    <p>Achieved milestone of 100,000 grant recipients worldwide. Program now active in all 195 countries. Total distributed funding reaches $500M. Launch of advanced AI review system for faster application processing.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2025 - Future Vision</div>
+                    <p>Introduction of multi-year grant programs for long-term research projects. Launch of collaborative innovation challenges addressing climate change, space exploration, and AI safety. Target: 1 million recipients by 2030.</p>
+                </div>
+            </div>
+
+            <!-- Impact Statistics -->
+            <section class="stats-section">
+                <div class="container">
+                    <h2 style="text-align: center; color: #1e3c72; margin-bottom: 3rem; font-size: 2.5rem;">Global Impact by Numbers</h2>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">1.2M+</div>
+                            <div class="stat-label">Total Applications</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100K+</div>
+                            <div class="stat-label">Grants Awarded</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">$500M+</div>
+                            <div class="stat-label">Total Distributed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">195</div>
+                            <div class="stat-label">Countries Reached</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">15K+</div>
+                            <div class="stat-label">Jobs Created</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">2,500+</div>
+                            <div class="stat-label">Startups Launched</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Patents Filed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">50M+</div>
+                            <div class="stat-label">Lives Impacted</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Success Stories Preview -->
+            <div style="margin: 4rem 0;">
+                <div class="content-with-image">
+                    <div>
+                        <h2 style="color: #1e3c72; margin-bottom: 1.5rem; font-size: 2.2rem;">Transforming Ideas into Reality</h2>
+                        <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: #666;">
+                            Our grant recipients aren't just receiving funding – they're becoming part of a global innovation ecosystem. From a solar energy startup in Kenya that now powers entire villages, to an AI-powered medical diagnostic tool developed in Mumbai that's revolutionizing healthcare in rural areas.
+                        </p>
+                        <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #666;">
+                            Every success story represents not just individual achievement, but collective progress toward solving humanity's greatest challenges. These innovations are creating jobs, improving lives, and pushing the boundaries of what's possible.
+                        </p>
+                        <a href="testimonies.html" style="background: linear-gradient(45deg, #ff6b35, #f7931e); color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; transition: transform 0.3s; display: inline-block;">Read Success Stories</a>
+                    </div>
+                    <div class="image-placeholder" style="
+    background-image: url('https://i.insider.com/64787fce085acb0018ff1e40?width=700');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 300px;
+    border: none;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+">
+</div>
+
+            </div>
+
+            <!-- Team Section -->
+            <section class="team-section">
+                <div class="container">
+                    <h2 style="margin-bottom: 2rem; font-size: 2.5rem;">Meet Our Global Team</h2>
+                    <p style="margin-bottom: 3rem; font-size: 1.2rem; opacity: 0.9; max-width: 800px; margin-left: auto; margin-right: auto;">
+                        Our diverse team of experts, entrepreneurs, and visionaries work around the clock to identify, support, and mentor the next generation of global innovators.
+                    </p>
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <div class="team-avatar">MJ</div>
+                            <h3>Dr. Maria James</h3>
+                            <div class="role">Global Grant Coordinator</div>
+                            <div class="bio">Former NASA scientist with 15+ years in space technology research. PhD in Aerospace Engineering from MIT. Leads our space innovation grants program and oversees applications from 65+ countries.</div>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-avatar">DL</div>
+                            <h3>David Liu</h3>
+                            <div class="role">Technology Assessment Director</div>
+                            <div class="bio">Serial entrepreneur and former Tesla engineer. Founded 3 successful startups in renewable energy. Expert in evaluating technology feasibility and market potential for sustainable innovation projects.</div>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-avatar">AP</div>
+                            <h3>Amara Patel</h3>
+                            <div class="role">Community Outreach Manager</div>
+                            <div class="bio">Global development specialist with extensive experience in emerging markets. Fluent in 7 languages. Manages outreach programs across Africa, Asia, and South America to ensure equitable access to opportunities.</div>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-avatar">RK</div>
+                            <h3>Dr. Robert Kim</h3>
+                            <div class="role">AI & Innovation Lead</div>
+                            <div class="bio">Former Google DeepMind researcher specializing in AI safety and ethics. PhD in Computer Science from Stanford. Oversees AI-related grant applications and mentors recipients in machine learning projects.</div>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-avatar">SN</div>
+                            <h3>Sofia Nakamura</h3>
+                            <div class="role">Mentorship Program Director</div>
+                            <div class="bio">Venture capitalist and former startup accelerator director. Successfully mentored 200+ entrepreneurs. Connects grant recipients with industry experts and manages our global mentorship network.</div>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-avatar">JO</div>
+                            <h3>James Okafor</h3>
+                            <div class="role">Regional Director - Africa</div>
+                            <div class="bio">Social entrepreneur focused on sustainable development in Africa. Founded multiple NGOs supporting education and technology access. Manages grant programs across 54 African countries.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Innovation Focus Areas -->
+            <div style="margin: 4rem 0;">
+                <h2 style="text-align: center; color: #1e3c72; margin-bottom: 3rem; font-size: 2.5rem;">Our Innovation Focus Areas</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem;">
+                    <div style="background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center;">
+                        <div class="image-placeholder" style="margin-bottom: 2rem; min-height: 200px;">
+                            <p>🔋 Clean Energy Innovation<br>Solar, Wind & Battery Tech<br> Placeholder</p>
+                        </div>
+                        <h3 style="color: #1e3c72; margin-bottom: 1rem; font-size: 1.4rem;">Sustainable Energy</h3>
+                        <p style="color: #666;">Supporting breakthrough innovations in renewable energy, energy storage, and grid technology. From solar panel efficiency improvements to revolutionary battery designs.</p>
+                    </div>
+                    <div style="background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center;">
+                        <div class="image-placeholder" style="margin-bottom: 2rem; min-height: 200px;">
+                            <p>🚀 Space Technology<br>Mars Mission Prep<br> Placeholder</p>
+                        </div>
+                        <h3 style="color: #1e3c72; margin-bottom: 1rem; font-size: 1.4rem;">Space Exploration</h3>
+                        <p style="color: #666;">Funding projects that advance human space exploration, from rocket propulsion systems to life support technologies for Mars colonization.</p>
+                    </div>
+                    <div style="background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center;">
+                        <div class="image-placeholder" style="margin-bottom: 2rem; min-height: 200px;">
+                            <p>🤖 AI & Machine Learning<br>Ethical AI Development<br> Placeholder</p>
+                        </div>
+                        <h3 style="color: #1e3c72; margin-bottom: 1rem; font-size: 1.4rem;">Artificial Intelligence</h3>
+                        <p style="color: #666;">Supporting AI research focused on solving real-world problems: healthcare diagnostics, climate modeling, educational tools, and safety systems.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div style="background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 4rem; border-radius: 20px; text-align: center; margin: 4rem 0;">
+                <h2 style="margin-bottom: 1.5rem; font-size: 2.5rem;">Ready to Join Our Innovation Network?</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Whether you're a researcher, entrepreneur, or inventor with a groundbreaking idea, we want to hear from you. Join the thousands of innovators who are already shaping the future with our support.
+                </p>
+                <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="contact.html" style="background: linear-gradient(45deg, #ff6b35, #f7931e); color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; transition: transform 0.3s; display: inline-block;">Apply for Grant</a>
+                    <a href="testimonies.html" style="background: rgba(255,255,255,0.2); color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; border: 2px solid white; transition: transform 0.3s; display: inline-block;">Read Success Stories</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="testimonies.html">Testimonies</a>
+               <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+            </div>
+            <p>&copy; 2024 Elon Musk Grant Program. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">
+                Follow us: 
+                <a href="#" style="color: #87ceeb; text-decoration: none;">X (Twitter)</a> | 
+                <a href="#" style="color: #87ceeb; text-decoration: none;">Instagram</a> | 
+                <a href="#" style="color: #87ceeb; text-decoration: none;">Facebook</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth animations for timeline items
+        function animateTimeline() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'slideInLeft 0.8s ease-out';
+                    }
+                });
+            });
+
+            timelineItems.forEach(item => observer.observe(item));
+        }
+
+        // Animation for stats
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'countUp 1s ease-out';
+                    }
+                });
+            });
+
+            statNumbers.forEach(stat => observer.observe(stat));
+        }
+
+        // CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInLeft {
+                from { opacity: 0; transform: translateX(-50px); }
+                to { opacity: 1; transform: translateX(0); }
+            }
+            @keyframes countUp {
+                from { opacity: 0; transform: scale(0.5); }
+                to { opacity: 1; transform: scale(1); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize animations when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            animateTimeline();
+            animateStats();
+        });
+    </script>
+
+    <script>
+// Mobile menu toggle function
+function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('show');
+}
+
+// Close mobile menu when clicking on a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.remove('show');
+    });
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    const nav = document.querySelector('nav');
+    const navLinks = document.querySelector('.nav-links');
+    if (!nav.contains(e.target) && navLinks.classList.contains('show')) {
+        navLinks.classList.remove('show');
+    }
+});
+</script>
+
+</body>
+</html>

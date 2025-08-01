@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Elon Musk Grant Program</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            min-height: 100vh;
+        }
+
+        /* Navigation - Same as homepage */
+        nav {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #87ceeb;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 8px 40px rgba(30,60,114,0.10);
+            margin-top: 110px;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: #1e3c72;
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            color: #2a5298;
+            font-size: 1.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.7rem;
+            color: #444;
+            line-height: 1.7;
+        }
+
+        p {
+            color: #444;
+            font-size: 1.08rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .effective-date {
+            text-align: right;
+            color: #888;
+            font-size: 0.98rem;
+            margin-top: -1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        a {
+            color: #1e3c72;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #f7931e;
+        }
+
+        /* Footer - Same as homepage */
+        .footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 0;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #87ceeb;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: linear-gradient(135deg, #1e3c72, #2a5298);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.show {
+                display: flex;
+            }
+            
+            .nav-links li {
+                text-align: center;
+                padding: 0.5rem 0;
+            }
+
+            .main-container {
+                padding: 2rem 1.5rem;
+                margin-top: 90px;
+                margin-left: 1rem;
+                margin-right: 1rem;
+                border-radius: 16px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            ul {
+                margin-left: 1.5rem;
+            }
+
+            .footer-links {
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-container {
+                padding: 1.5rem 1rem;
+                margin-left: 0.5rem;
+                margin-right: 0.5rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">🚀 Elon Musk Grant</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="testimonies.html">Testimonies</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms-of-service.html" style="color: #87ceeb;">Terms of Service</a></li>
+            </ul>
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <h1>Terms of Service</h1>
+        <p class="effective-date">Effective Date: July 31, 2025</p>
+        
+        <p>Welcome to the Elon Musk Grant Program website. By accessing or using our website and services, you agree to comply with and be bound by the following Terms of Service. Please read them carefully.</p>
+        
+        <h2>1. Acceptance of Terms</h2>
+        <p>By using this website, you agree to these Terms of Service and our Privacy Policy. If you do not agree, please do not use our site.</p>
+        
+        <h2>2. Eligibility</h2>
+        <p>Our grant program is open to individuals and organizations worldwide, subject to applicable laws and eligibility requirements outlined on our site. You must be at least 16 years old to apply.</p>
+        
+        <h2>3. Application Process</h2>
+        <ul>
+            <li>All information provided in your application must be accurate and complete.</li>
+            <li>Submission of an application does not guarantee funding.</li>
+            <li>We reserve the right to request additional information or documentation as needed.</li>
+        </ul>
+        
+        <h2>4. Use of Funds</h2>
+        <ul>
+            <li>Grant funds must be used solely for the purposes described in your application.</li>
+            <li>Misuse of funds may result in termination of funding and legal action.</li>
+        </ul>
+        
+        <h2>5. Intellectual Property</h2>
+        <ul>
+            <li>All content on this website, including text, graphics, logos, and images, is the property of the Elon Musk Grant Program or its licensors.</li>
+            <li>You may not copy, reproduce, or distribute any content without our written permission.</li>
+        </ul>
+        
+        <h2>6. User Conduct</h2>
+        <ul>
+            <li>You agree not to use the website for any unlawful, harmful, or fraudulent purpose.</li>
+            <li>You will not attempt to gain unauthorized access to any part of the site or its systems.</li>
+        </ul>
+        
+        <h2>7. Disclaimer of Warranties</h2>
+        <p>Our website and services are provided "as is" without warranties of any kind. We do not guarantee the accuracy, completeness, or reliability of any content or information.</p>
+        
+        <h2>8. Limitation of Liability</h2>
+        <p>The Elon Musk Grant Program is not liable for any direct, indirect, incidental, or consequential damages arising from your use of the website or participation in the grant program.</p>
+        
+        <h2>9. Changes to Terms</h2>
+        <p>We may update these Terms of Service at any time. Changes will be posted on this page with an updated effective date. Continued use of the site constitutes acceptance of the new terms.</p>
+        
+        <h2>10. Contact Us</h2>
+        <p>If you have any questions about these Terms of Service, please contact us at <a href="mailto:legal@elonmuskgrant.org">elonmuskgrantpromotion@gmail.com</a>.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="testimonies.html">Testimonies</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html" style="color: #87ceeb;">Terms of Service</a>
+            </div>
+            <p>&copy; 2024 Elon Musk Grant Program. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">
+                Follow us: 
+                <a href="#" style="color: #87ceeb; text-decoration: none;">X (Twitter)</a> | 
+                <a href="#" style="color: #87ceeb; text-decoration: none;">Instagram</a> | 
+                <a href="#" style="color: #87ceeb; text-decoration: none;">Facebook</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle function
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('show');
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('show');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const nav = document.querySelector('nav');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (!nav.contains(e.target) && navLinks.classList.contains('show')) {
+                navLinks.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
