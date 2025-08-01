@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Privacy Policy - Elon Musk Grant Program</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
     <style>
@@ -13,22 +13,25 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #333;
             background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
             min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Navigation - Same as homepage */
+        /* Navigation */
         nav {
             background: linear-gradient(135deg, #1e3c72, #2a5298);
-            padding: 1rem 0;
+            padding: 0.75rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+            backdrop-filter: blur(10px);
         }
 
         .nav-container {
@@ -37,30 +40,41 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+            padding: 0 1rem;
+            position: relative;
         }
 
         .logo {
             color: white;
-            font-size: 1.8rem;
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
             font-weight: bold;
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1rem;
+            margin: 0;
         }
 
         .nav-links a {
             color: white;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
             font-weight: 500;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+            white-space: nowrap;
         }
 
-        .nav-links a:hover {
+        .nav-links a:hover,
+        .nav-links a[style*="color: #87ceeb"] {
+            background: rgba(255,255,255,0.1);
             color: #87ceeb;
         }
 
@@ -70,89 +84,275 @@
             font-size: 1.5rem;
             cursor: pointer;
             padding: 0.5rem;
+            border: none;
+            background: none;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .menu-toggle:hover {
+            background: rgba(255,255,255,0.1);
         }
 
         /* Main Content */
         .main-container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: clamp(2rem, 6vw, 4rem) clamp(1rem, 4vw, 2rem);
             background: white;
-            border-radius: 24px;
+            border-radius: clamp(16px, 4vw, 24px);
             box-shadow: 0 8px 40px rgba(30,60,114,0.10);
-            margin-top: 110px;
+            margin-top: clamp(90px, 15vw, 110px);
             margin-bottom: 2rem;
+            margin-left: clamp(0.5rem, 3vw, auto);
+            margin-right: clamp(0.5rem, 3vw, auto);
         }
 
         h1 {
             color: #1e3c72;
-            font-size: 2.8rem;
+            font-size: clamp(2rem, 8vw, 2.8rem);
             margin-bottom: 1.5rem;
             text-align: center;
             letter-spacing: 1px;
+            font-weight: 700;
+            line-height: 1.2;
         }
 
         h2 {
             color: #2a5298;
-            font-size: 1.5rem;
-            margin-top: 2.5rem;
+            font-size: clamp(1.2rem, 5vw, 1.5rem);
+            margin-top: clamp(2rem, 6vw, 2.5rem);
             margin-bottom: 1rem;
+            font-weight: 600;
+            line-height: 1.3;
+            position: relative;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: -1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            border-radius: 2px;
         }
 
         ul {
-            margin-left: 2rem;
+            margin-left: clamp(1rem, 4vw, 2rem);
             margin-bottom: 1.5rem;
+            padding-left: 0;
         }
 
         li {
-            margin-bottom: 0.7rem;
+            margin-bottom: 0.8rem;
             color: #444;
             line-height: 1.7;
+            font-size: clamp(0.95rem, 3vw, 1.08rem);
+            position: relative;
+            padding-left: 0.5rem;
+        }
+
+        li::marker {
+            color: #1e3c72;
+        }
+
+        li strong {
+            color: #1e3c72;
+            font-weight: 600;
         }
 
         p {
             color: #444;
-            font-size: 1.08rem;
+            font-size: clamp(1rem, 3vw, 1.08rem);
             margin-bottom: 1.2rem;
+            line-height: 1.7;
         }
 
         .effective-date {
             text-align: right;
             color: #888;
-            font-size: 0.98rem;
+            font-size: clamp(0.85rem, 2.5vw, 0.98rem);
             margin-top: -1.5rem;
             margin-bottom: 2rem;
+            font-style: italic;
         }
 
         a {
             color: #1e3c72;
             text-decoration: underline;
             transition: color 0.2s;
+            word-break: break-word;
         }
 
         a:hover {
             color: #f7931e;
         }
 
-        /* Footer - Same as homepage */
+        /* Content styling enhancements */
+        .content-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            border-radius: 12px;
+            border: 1px solid rgba(30, 60, 114, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #1e3c72, #2a5298, #ff6b35);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 4px solid #1e3c72;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 2px 10px rgba(30,60,114,0.05);
+        }
+
+        .privacy-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .privacy-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid rgba(30, 60, 114, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .privacy-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .privacy-card h3 {
+            color: #1e3c72;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .privacy-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .contact-info {
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translateX(-100%) translateY(-100%); }
+            50% { transform: translateX(0) translateY(0); }
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-info a {
+            color: #87ceeb;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 25px;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255,255,255,0.2);
+        }
+
+        .data-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .data-type {
+            background: linear-gradient(135deg, #fff, #f8f9fa);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(30, 60, 114, 0.1);
+            text-align: center;
+        }
+
+        .data-type-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .data-type h4 {
+            color: #1e3c72;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Footer */
         .footer {
             background: #1e3c72;
             color: white;
             text-align: center;
-            padding: 2rem 0;
+            padding: 2rem 1rem;
             margin-top: 0;
         }
 
         .footer-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
         }
 
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: clamp(0.5rem, 3vw, 2rem);
             margin-bottom: 1rem;
             flex-wrap: wrap;
         }
@@ -160,14 +360,37 @@
         .footer-links a {
             color: white;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            font-size: clamp(0.85rem, 2.5vw, 1rem);
         }
 
-        .footer-links a:hover {
+        .footer-links a:hover,
+        .footer-links a[style*="color: #87ceeb"] {
             color: #87ceeb;
+            background: rgba(255,255,255,0.1);
         }
 
-        /* Mobile Responsiveness */
+        .footer p {
+            color: white;
+            margin-bottom: 0.5rem;
+            font-size: clamp(0.85rem, 2.5vw, 1rem);
+        }
+
+        .footer .social-links {
+            margin-top: 0.5rem;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            opacity: 0.8;
+        }
+
+        .footer .social-links a {
+            color: #87ceeb;
+            text-decoration: none;
+            padding: 0.25rem 0.5rem;
+        }
+
+        /* Mobile Optimizations */
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
@@ -182,7 +405,8 @@
                 background: linear-gradient(135deg, #1e3c72, #2a5298);
                 flex-direction: column;
                 padding: 1rem 0;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+                border-radius: 0 0 20px 20px;
             }
             
             .nav-links.show {
@@ -192,14 +416,106 @@
             .nav-links li {
                 text-align: center;
                 padding: 0.5rem 0;
+                margin: 0 1rem;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1rem;
+                border-radius: 12px;
+                font-size: 1.1rem;
+                white-space: normal;
             }
 
             .main-container {
-                padding: 2rem 1.5rem;
-                margin-top: 90px;
-                margin-left: 1rem;
-                margin-right: 1rem;
                 border-radius: 16px;
+                margin-top: 100px;
+            }
+
+            .content-section {
+                padding: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            h2::before {
+                left: -0.5rem;
+            }
+
+            ul {
+                margin-left: 1.5rem;
+            }
+
+            .privacy-categories {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .data-types {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .footer-links {
+                gap: 0.75rem;
+            }
+
+            .footer-links a {
+                font-size: 0.9rem;
+                padding: 0.75rem 0.5rem;
+            }
+
+            /* Better touch targets */
+            a, button {
+                min-height: 44px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .contact-info a {
+                min-height: 48px;
+                padding: 0.75rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 0.75rem;
+            }
+
+            .main-container {
+                margin-left: 0.5rem;
+                margin-right: 0.5rem;
+                border-radius: 12px;
+            }
+
+            .content-section {
+                padding: 0.75rem;
+            }
+
+            ul {
+                margin-left: 1rem;
+            }
+
+            .data-types {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.75rem;
+            }
+
+            .footer-links {
+                gap: 0.5rem;
+            }
+
+            .footer-links a {
+                font-size: 0.85rem;
+                padding: 0.75rem 0.25rem;
+            }
+        }
+
+        /* Landscape phone adjustments */
+        @media (max-width: 896px) and (orientation: landscape) {
+            .main-container {
+                margin-top: 80px;
+                padding: 2rem 1.5rem;
             }
 
             h1 {
@@ -207,36 +523,65 @@
             }
 
             h2 {
-                font-size: 1.2rem;
-            }
-
-            ul {
-                margin-left: 1.5rem;
-            }
-
-            .footer-links {
-                gap: 1rem;
+                font-size: 1.3rem;
             }
         }
 
-        @media (max-width: 480px) {
-            .main-container {
-                padding: 1.5rem 1rem;
-                margin-left: 0.5rem;
-                margin-right: 0.5rem;
+        /* iOS Safari specific fixes */
+        @supports (-webkit-touch-callout: none) {
+            body {
+                min-height: -webkit-fill-available;
             }
+            
+            /* Prevent zoom on input focus */
+            input, select, textarea {
+                font-size: 16px !important;
+            }
+        }
 
-            h1 {
-                font-size: 1.8rem;
+        /* High DPI displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            body {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
             }
+        }
 
-            .nav-container {
-                padding: 0 1rem;
-            }
+        /* Animation for smooth interactions */
+        * {
+            transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+        }
 
-            .logo {
-                font-size: 1.5rem;
-            }
+        /* Focus styles for accessibility */
+        a:focus, button:focus {
+            outline: 2px solid #ff6b35;
+            outline-offset: 2px;
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection styling */
+        ::selection {
+            background: #ff6b35;
+            color: white;
+        }
+
+        ::-moz-selection {
+            background: #ff6b35;
+            color: white;
+        }
+
+        /* Loading animation */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -252,7 +597,7 @@
                 <li><a href="testimonies.html">Testimonies</a></li>
                 <li><a href="privacy-policy.html" style="color: #87ceeb;">Privacy Policy</a></li>
             </ul>
-            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
         </div>
     </nav>
 
@@ -261,50 +606,116 @@
         <h1>Privacy Policy</h1>
         <p class="effective-date">Effective Date: July 31, 2025</p>
         
-        <p>Your privacy is important to us. This Privacy Policy explains how the Elon Musk Grant Program collects, uses, protects, and shares your personal information when you use our website and services.</p>
+        <div class="highlight-box">
+            <p><strong>Your privacy is important to us.</strong> This Privacy Policy explains how the Elon Musk Grant Program collects, uses, protects, and shares your personal information when you use our website and services.</p>
+        </div>
         
-        <h2>1. Information We Collect</h2>
-        <ul>
-            <li><strong>Personal Information:</strong> Name, email address, phone number, country, and other details you provide when applying for a grant or contacting us.</li>
-            <li><strong>Application Data:</strong> Project details, documents, and supporting materials submitted as part of your grant application.</li>
-            <li><strong>Usage Data:</strong> Information about how you use our website, including IP address, browser type, device information, and pages visited.</li>
-        </ul>
+        <div class="content-section fade-in">
+            <h2>1. Information We Collect</h2>
+            <div class="data-types">
+                <div class="data-type">
+                    <div class="data-type-icon">👤</div>
+                    <h4>Personal Information</h4>
+                </div>
+                <div class="data-type">
+                    <div class="data-type-icon">📋</div>
+                    <h4>Application Data</h4>
+                </div>
+                <div class="data-type">
+                    <div class="data-type-icon">📊</div>
+                    <h4>Usage Data</h4>
+                </div>
+            </div>
+            <ul>
+                <li><strong>Personal Information:</strong> Name, email address, phone number, country, and other details you provide when applying for a grant or contacting us.</li>
+                <li><strong>Application Data:</strong> Project details, documents, and supporting materials submitted as part of your grant application.</li>
+                <li><strong>Usage Data:</strong> Information about how you use our website, including IP address, browser type, device information, and pages visited.</li>
+            </ul>
+        </div>
         
-        <h2>2. How We Use Your Information</h2>
-        <ul>
-            <li>To process and review your grant application.</li>
-            <li>To communicate with you regarding your application or inquiries.</li>
-            <li>To improve our website, services, and user experience.</li>
-            <li>To comply with legal obligations and protect our rights.</li>
-        </ul>
+        <div class="content-section fade-in">
+            <h2>2. How We Use Your Information</h2>
+            <div class="privacy-categories">
+                <div class="privacy-card">
+                    <h3>🔍 Application Processing</h3>
+                    <p>To process and review your grant application thoroughly</p>
+                </div>
+                <div class="privacy-card">
+                    <h3>💬 Communication</h3>
+                    <p>To communicate with you regarding your application or inquiries</p>
+                </div>
+                <div class="privacy-card">
+                    <h3>📈 Service Improvement</h3>
+                    <p>To improve our website, services, and user experience</p>
+                </div>
+                <div class="privacy-card">
+                    <h3>⚖️ Legal Compliance</h3>
+                    <p>To comply with legal obligations and protect our rights</p>
+                </div>
+            </div>
+        </div>
         
-        <h2>3. How We Share Your Information</h2>
-        <ul>
-            <li>We do <strong>not</strong> sell or rent your personal information to third parties.</li>
-            <li>We may share your information with trusted partners and service providers who assist us in operating our website and processing applications, under strict confidentiality agreements.</li>
-            <li>We may disclose information if required by law or to protect the safety, rights, or property of our users or the public.</li>
-        </ul>
+        <div class="content-section fade-in">
+            <h2>3. How We Share Your Information</h2>
+            <ul>
+                <li>We do <strong>not</strong> sell or rent your personal information to third parties.</li>
+                <li>We may share your information with trusted partners and service providers who assist us in operating our website and processing applications, under strict confidentiality agreements.</li>
+                <li>We may disclose information if required by law or to protect the safety, rights, or property of our users or the public.</li>
+            </ul>
+        </div>
         
-        <h2>4. Data Security</h2>
-        <p>We implement industry-standard security measures to protect your information from unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet is 100% secure.</p>
+        <div class="content-section fade-in">
+            <h2>4. Data Security</h2>
+            <p>We implement industry-standard security measures to protect your information from unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet is 100% secure.</p>
+            <div class="privacy-categories">
+                <div class="privacy-card">
+                    <h3>🔒 Encryption</h3>
+                    <p>All data is encrypted in transit and at rest</p>
+                </div>
+                <div class="privacy-card">
+                    <h3>🛡️ Access Control</h3>
+                    <p>Strict access controls limit who can view your data</p>
+                </div>
+                <div class="privacy-card">
+                    <h3>🔄 Regular Audits</h3>
+                    <p>Regular security audits ensure ongoing protection</p>
+                </div>
+            </div>
+        </div>
         
-        <h2>5. Cookies & Tracking</h2>
-        <p>We use cookies and similar technologies to enhance your experience, analyze site usage, and improve our services. You can control cookies through your browser settings.</p>
+        <div class="content-section fade-in">
+            <h2>5. Cookies & Tracking</h2>
+            <p>We use cookies and similar technologies to enhance your experience, analyze site usage, and improve our services. You can control cookies through your browser settings.</p>
+        </div>
         
-        <h2>6. Your Rights</h2>
-        <ul>
-            <li>You may request access to, correction, or deletion of your personal information at any time.</li>
-            <li>You may opt out of receiving non-essential communications from us.</li>
-        </ul>
+        <div class="content-section fade-in">
+            <h2>6. Your Rights</h2>
+            <ul>
+                <li>You may request access to, correction, or deletion of your personal information at any time.</li>
+                <li>You may opt out of receiving non-essential communications from us.</li>
+                <li>You have the right to data portability and can request your data in a machine-readable format.</li>
+                <li>You can withdraw consent at any time where we rely on consent for processing.</li>
+            </ul>
+        </div>
         
-        <h2>7. Children's Privacy</h2>
-        <p>Our services are not directed to children under 16. We do not knowingly collect personal information from children under 16.</p>
+        <div class="content-section fade-in">
+            <h2>7. Children's Privacy</h2>
+            <p>Our services are not directed to children under 16. We do not knowingly collect personal information from children under 16. If we become aware that a child under 16 has provided us with personal information, we will take steps to delete such information.</p>
+        </div>
         
-        <h2>8. Changes to This Policy</h2>
-        <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated effective date.</p>
+        <div class="content-section fade-in">
+            <h2>8. Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated effective date. We encourage you to review this Privacy Policy periodically for any changes.</p>
+        </div>
         
-        <h2>9. Contact Us</h2>
-        <p>If you have any questions or concerns about this Privacy Policy or your data, please contact us at <a href="mailto:privacy@elonmuskgrant.org">elonmuskgrantpromotion@gmail.com</a>.</p>
+        <div class="content-section fade-in">
+            <h2>9. Contact Us</h2>
+            <div class="contact-info">
+                <h3>Have Questions About Your Privacy?</h3>
+                <p>If you have any questions or concerns about this Privacy Policy or your data, we're here to help.</p>
+                <a href="mailto:elonmuskgrantpromotion@gmail.com">elonmuskgrantpromotion@gmail.com</a>
+            </div>
+        </div>
     </div>
 
     <!-- Footer -->
@@ -319,11 +730,11 @@
                 <a href="terms-of-service.html">Terms of Service</a>
             </div>
             <p>&copy; 2024 Elon Musk Grant Program. All rights reserved.</p>
-            <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">
+            <p class="social-links">
                 Follow us: 
-                <a href="#" style="color: #87ceeb; text-decoration: none;">X (Twitter)</a> | 
-                <a href="#" style="color: #87ceeb; text-decoration: none;">Instagram</a> | 
-                <a href="#" style="color: #87ceeb; text-decoration: none;">Facebook</a>
+                <a href="#" aria-label="Follow us on X (Twitter)">X (Twitter)</a> | 
+                <a href="#" aria-label="Follow us on Instagram">Instagram</a> | 
+                <a href="#" aria-label="Follow us on Facebook">Facebook</a>
             </p>
         </div>
     </footer>
@@ -351,6 +762,133 @@
                 navLinks.classList.remove('show');
             }
         });
+
+        // Smooth scroll to sections
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all content sections
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Accessibility improvements
+        document.addEventListener('keydown', function(e) {
+            // Escape key closes mobile menu
+            if (e.key === 'Escape') {
+                const navLinks = document.querySelector('.nav-links');
+                if (navLinks.classList.contains('show')) {
+                    navLinks.classList.remove('show');
+                }
+            }
+        });
+
+        // Touch event optimization for mobile
+        let touchStartY = 0;
+        let touchEndY = 0;
+
+        document.addEventListener('touchstart', function(e) {
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+
+        document.addEventListener('touchend', function(e) {
+            touchEndY = e.changedTouches[0].screenY;
+            // Add any swipe gestures here if needed
+        }, { passive: true });
+
+        // Prevent zoom on double tap for iOS
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function (event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, { passive: false });
+
+        // Performance optimization - lazy load images if any
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.classList.remove('lazy');
+                            imageObserver.unobserve(img);
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Add loading state for better UX
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+            
+            // Trigger fade-in animations for initially visible content
+            const visibleSections = document.querySelectorAll('.content-section');
+            visibleSections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Enhanced error handling for better user experience
+        window.addEventListener('error', function(e) {
+            console.log('An error occurred, but the page should still function normally.');
+        });
+
+        // Progressive enhancement for touch devices
+        if ('ontouchstart' in window) {
+            document.body.classList.add('touch-device');
+            
+            // Add touch-specific enhancements
+            document.querySelectorAll('.privacy-card, .contact-info').forEach(element => {
+                element.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(0.98)';
+                });
+                
+                element.addEventListener('touchend', function() {
+                    this.style.transform = '';
+                });
+            });
+        }
     </script>
 </body>
 </html>
