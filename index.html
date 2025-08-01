@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Elon Musk Grant - Changing Lives with Opportunity</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
-    <link rel="stylesheet" href="style.css">
 
     <style>
         * {
@@ -15,21 +14,24 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #333;
             background: white;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         /* Navigation */
         nav {
             background: linear-gradient(135deg, #1e3c72, #2a5298);
-            padding: 1rem 0;
+            padding: 0.75rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+            backdrop-filter: blur(10px);
         }
 
         .nav-container {
@@ -38,30 +40,39 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+            padding: 0 1rem;
+            position: relative;
         }
 
         .logo {
             color: white;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: bold;
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1.5rem;
+            margin: 0;
         }
 
         .nav-links a {
             color: white;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
             font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
         }
 
         .nav-links a:hover {
+            background: rgba(255,255,255,0.1);
             color: #87ceeb;
         }
 
@@ -71,92 +82,114 @@
             font-size: 1.5rem;
             cursor: pointer;
             padding: 0.5rem;
+            border: none;
+            background: none;
+            border-radius: 8px;
+            transition: background 0.3s ease;
         }
 
-        .language-selector {
-            color: white;
-            font-size: 0.9rem;
+        .menu-toggle:hover {
+            background: rgba(255,255,255,0.1);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(30, 60, 114, 0.8), rgba(42, 82, 152, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23000" width="1200" height="600"/><circle fill="%23fff" cx="600" cy="200" r="30" opacity="0.1"/><rect fill="%23fff" x="100" y="500" width="40" height="80" opacity="0.1"/><rect fill="%23fff" x="200" y="480" width="30" height="100" opacity="0.1"/><rect fill="%23fff" x="300" y="490" width="35" height="90" opacity="0.1"/></svg>');
+            background: linear-gradient(rgba(30, 60, 114, 0.85), rgba(42, 82, 152, 0.85)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23000" width="1200" height="600"/><circle fill="%23fff" cx="600" cy="200" r="30" opacity="0.1"/><rect fill="%23fff" x="100" y="500" width="40" height="80" opacity="0.1"/><rect fill="%23fff" x="200" y="480" width="30" height="100" opacity="0.1"/><rect fill="%23fff" x="300" y="490" width="35" height="90" opacity="0.1"/></svg>');
             background-size: cover;
             background-position: center;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
-            margin-top: 80px;
+            padding: 6rem 1rem 2rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            width: 100%;
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+            font-size: clamp(2rem, 8vw, 3.5rem);
+            margin-bottom: 1.5rem;
             animation: fadeInUp 1s ease-out;
+            font-weight: 700;
+            line-height: 1.2;
         }
  
         .hero-content p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
+            font-size: clamp(1rem, 4vw, 1.3rem);
+            margin-bottom: 2.5rem;
             animation: fadeInUp 1s ease-out 0.3s both;
+            line-height: 1.6;
+            opacity: 0.95;
         }
 
         .cta-button {
             background: linear-gradient(45deg, #ff6b35, #f7931e);
             color: white;
-            padding: 15px 40px;
+            padding: 1rem 2.5rem;
             border: none;
             border-radius: 50px;
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 3vw, 1.2rem);
             font-weight: bold;
             text-decoration: none;
             display: inline-block;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s ease;
             animation: fadeInUp 1s ease-out 0.6s both;
+            min-height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+        }
+
+        .cta-button:active {
+            transform: translateY(-1px);
         }
 
         /* Stats Section */
         .stats {
             background: #f8f9fa;
-            padding: 4rem 0;
+            padding: 3rem 1rem;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
         }
 
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            gap: 1.5rem;
             text-align: center;
         }
 
         .stat-item {
             background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            padding: 2rem 1rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
         .stat-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
         }
 
         .stat-number {
-            font-size: 2.5rem;
+            font-size: clamp(2rem, 6vw, 2.5rem);
             font-weight: bold;
             color: #1e3c72;
             margin-bottom: 0.5rem;
@@ -164,20 +197,27 @@
 
         .stat-label {
             color: #666;
-            font-size: 1.1rem;
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            font-weight: 500;
         }
 
         /* Trust Logos */
         .trust-section {
-            padding: 3rem 0;
+            padding: 3rem 1rem;
             text-align: center;
+        }
+
+        .trust-section h2 {
+            color: #1e3c72;
+            margin-bottom: 2rem;
+            font-size: clamp(1.5rem, 5vw, 2rem);
         }
 
         .trust-logos {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 3rem;
+            gap: 1rem;
             flex-wrap: wrap;
             margin-top: 2rem;
         }
@@ -185,22 +225,42 @@
         .trust-logo {
             background: #1e3c72;
             color: white;
-            padding: 1rem 2rem;
-            border-radius: 10px;
+            padding: 0.75rem 1.5rem;
+            border-radius: 15px;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: clamp(0.9rem, 3vw, 1.2rem);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .trust-logo:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(30, 60, 114, 0.3);
         }
 
         /* Testimonials Preview */
         .testimonials-preview {
             background: linear-gradient(135deg, #1e3c72, #2a5298);
             color: white;
-            padding: 4rem 0;
+            padding: 4rem 1rem;
+        }
+
+        .testimonials-preview h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
+        }
+
+        .testimonials-preview > .container > p {
+            text-align: center;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            font-size: clamp(1rem, 4vw, 1.2rem);
         }
 
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
@@ -208,14 +268,22 @@
         .testimonial-card {
             background: rgba(255,255,255,0.1);
             padding: 2rem;
-            border-radius: 15px;
+            border-radius: 20px;
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
         }
 
         .testimonial-content {
             font-style: italic;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-size: clamp(0.95rem, 3vw, 1.1rem);
+            line-height: 1.6;
         }
 
         .testimonial-author {
@@ -233,61 +301,128 @@
             align-items: center;
             justify-content: center;
             font-weight: bold;
+            flex-shrink: 0;
         }
 
         /* Content with Image */
+        .content-section {
+            padding: 4rem 1rem;
+        }
+
         .content-with-image {
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 1fr;
             gap: 3rem;
             align-items: center;
-            margin: 3rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-text h2 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
+            line-height: 1.3;
+        }
+
+        .content-text p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            margin-bottom: 1.5rem;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .content-text a {
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 0.75rem 2rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-block;
+            min-height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content-text a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(30, 60, 114, 0.3);
         }
 
         .image-placeholder {
             background: linear-gradient(135deg, #e3f2fd, #bbdefb);
-            border-radius: 15px;
+            border-radius: 20px;
             padding: 2rem;
             text-align: center;
-            min-height: 300px;
+            min-height: 250px;
             display: flex;
             align-items: center;
             justify-content: center;
             border: 2px dashed #1e3c72;
+            background-image: url('https://www.forbes.com.au/wp-content/uploads/2025/03/image_c931bf.png?w=1024');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
         }
 
-        .image-placeholder p {
-            color: #1e3c72;
-            font-weight: 600;
-        }
-
-        /* Footer */
-        .footer {
-            background: #1e3c72;
-            color: white;
+        /* CTA Section */
+        .cta-section {
+            background: #f8f9fa;
+            padding: 4rem 1rem;
             text-align: center;
-            padding: 2rem 0;
         }
 
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
+        .cta-section h2 {
+            color: #1e3c72;
             margin-bottom: 1rem;
-            flex-wrap: wrap;
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
         }
 
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
+        .cta-section > .container > p {
+            font-size: clamp(1rem, 4vw, 1.2rem);
+            margin-bottom: 3rem;
+            color: #666;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .footer-links a:hover {
-            color: #87ceeb;
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
         }
 
-        /* Live Chat Styles */
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        .feature-card h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            font-size: clamp(1.1rem, 4vw, 1.3rem);
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: clamp(0.9rem, 3vw, 1rem);
+        }
+
+        /* Chat Widget */
         .chat-widget {
             position: fixed;
             bottom: 20px;
@@ -308,7 +443,7 @@
             justify-content: center;
             color: white;
             font-size: 24px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s ease;
             animation: pulse 2s infinite;
         }
 
@@ -384,11 +519,17 @@
             font-size: 20px;
             cursor: pointer;
             padding: 0;
-            width: 24px;
-            height: 24px;
+            width: 30px;
+            height: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .chat-close:hover {
+            background: rgba(255,255,255,0.1);
         }
 
         .chat-messages {
@@ -446,36 +587,6 @@
             color: white;
         }
 
-        .typing-indicator {
-            display: none;
-            padding: 12px 16px;
-            background: white;
-            border-radius: 18px;
-            max-width: 70%;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .typing-dots {
-            display: flex;
-            gap: 4px;
-        }
-
-        .typing-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #ccc;
-            animation: typing 1.4s infinite;
-        }
-
-        .typing-dot:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .typing-dot:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-
         .chat-input-container {
             padding: 20px;
             border-top: 1px solid #e0e0e0;
@@ -496,6 +607,7 @@
             outline: none;
             font-size: 14px;
             transition: border-color 0.3s;
+            min-height: 44px;
         }
 
         .chat-input:focus {
@@ -503,8 +615,8 @@
         }
 
         .chat-send {
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             background: linear-gradient(45deg, #1e3c72, #2a5298);
             border: none;
@@ -520,10 +632,34 @@
             transform: scale(1.1);
         }
 
-        .chat-send:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
+        /* Footer */
+        .footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #87ceeb;
+            background: rgba(255,255,255,0.1);
         }
 
         /* Animations */
@@ -558,16 +694,7 @@
             }
         }
 
-        @keyframes typing {
-            0%, 60%, 100% {
-                transform: translateY(0);
-            }
-            30% {
-                transform: translateY(-10px);
-            }
-        }
-
-        /* Mobile Responsiveness */
+        /* Mobile Specific Improvements */
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
@@ -582,7 +709,8 @@
                 background: linear-gradient(135deg, #1e3c72, #2a5298);
                 flex-direction: column;
                 padding: 1rem 0;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+                border-radius: 0 0 20px 20px;
             }
             
             .nav-links.show {
@@ -592,40 +720,150 @@
             .nav-links li {
                 text-align: center;
                 padding: 0.5rem 0;
+                margin: 0 1rem;
             }
-            
-            .hero-content h1 {
-                font-size: 2.5rem;
+
+            .nav-links a {
+                display: block;
+                padding: 1rem;
+                border-radius: 12px;
+                font-size: 1.1rem;
             }
-            
+
             .content-with-image {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
-            
-            .trust-logos {
+
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
                 gap: 1rem;
             }
-            
-            .trust-logo {
-                padding: 0.5rem 1rem;
-                font-size: 1rem;
-            }
-            
+
             .testimonials-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .trust-logos {
+                gap: 0.75rem;
+            }
+
+            .trust-logo {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            /* Mobile Chat Adjustments */
+            .chat-widget {
+                bottom: 15px;
+                right: 15px;
             }
 
             .chat-window {
-                width: 90vw;
-                height: 80vh;
-                right: 5vw;
-                bottom: 90px;
+                width: calc(100vw - 30px);
+                height: 70vh;
+                right: -15px;
+                bottom: 85px;
+                max-width: 400px;
             }
 
             .chat-button {
                 width: 55px;
                 height: 55px;
                 font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 0.75rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .hero {
+                padding: 5rem 0.75rem 2rem;
+            }
+
+            .stats {
+                padding: 2rem 0.75rem;
+            }
+
+            .container {
+                padding: 0 0.75rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .stat-item {
+                padding: 1.5rem 1rem;
+            }
+
+            .testimonial-card {
+                padding: 1.5rem;
+            }
+
+            .footer-links {
+                gap: 0.5rem;
+            }
+
+            .footer-links a {
+                font-size: 0.9rem;
+                padding: 0.75rem 0.5rem;
+            }
+
+            /* Ultra-mobile chat */
+            .chat-window {
+                width: calc(100vw - 20px);
+                height: 75vh;
+                right: -10px;
+                border-radius: 15px;
+            }
+
+            .chat-messages {
+                padding: 15px;
+            }
+
+            .chat-input-container {
+                padding: 15px;
+            }
+        }
+
+        /* Landscape phone adjustments */
+        @media (max-width: 896px) and (orientation: landscape) {
+            .hero {
+                min-height: 80vh;
+                padding: 4rem 1rem 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* iOS Safari specific fixes */
+        @supports (-webkit-touch-callout: none) {
+            .chat-window {
+                height: 60vh;
+            }
+            
+            .hero {
+                min-height: -webkit-fill-available;
             }
         }
     </style>
@@ -641,7 +879,7 @@
                 <li><a href="contact.html">Contact Us</a></li>
                 <li><a href="testimonies.html">Testimonies</a></li>
             </ul>
-            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
         </div>
     </nav>
 
@@ -679,29 +917,20 @@
     </section>
 
     <!-- Introduction Section -->
-    <section style="padding: 4rem 0;">
+    <section class="content-section">
         <div class="container">
             <div class="content-with-image">
-                <div>
-                    <h2 style="color: #1e3c72; margin-bottom: 1rem; font-size: 2.5rem;">Empowering Global Innovation</h2>
-                    <p style="font-size: 1.2rem; margin-bottom: 1.5rem; color: #666;">
+                <div class="content-text">
+                    <h2>Empowering Global Innovation</h2>
+                    <p>
                         Elon Musk's Global Grant Program represents the largest private initiative for supporting innovation worldwide. Our mission is to identify brilliant minds with groundbreaking ideas and provide them with the financial resources needed to transform their visions into reality.
                     </p>
-                    <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #666;">
+                    <p>
                         From renewable energy solutions to artificial intelligence breakthroughs, educational technologies to space exploration innovations, we support projects that have the potential to create positive impact for humanity's future.
                     </p>
-                    <a href="about.html" style="background: linear-gradient(45deg, #1e3c72, #2a5298); color: white; padding: 12px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; transition: transform 0.3s;">Learn More About Our Mission</a>
+                    <a href="about.html">Learn More About Our Mission</a>
                 </div>
-                <div class="image-placeholder" style="
-                    background-image: url('https://www.forbes.com.au/wp-content/uploads/2025/03/image_c931bf.png?w=1024');
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    height: 300px;
-                    border: none;
-                    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-                ">
-                </div>
+                <div class="image-placeholder"></div>
             </div>
         </div>
     </section>
@@ -709,7 +938,7 @@
     <!-- Trust Logos -->
     <section class="trust-section">
         <div class="container">
-            <h2 style="color: #1e3c72; margin-bottom: 2rem;">Backed by Innovation Leaders</h2>
+            <h2>Backed by Innovation Leaders</h2>
             <div class="trust-logos">
                 <div class="trust-logo">🚗 Tesla</div>
                 <div class="trust-logo">🚀 SpaceX</div>
@@ -722,8 +951,8 @@
     <!-- Testimonials Preview -->
     <section class="testimonials-preview">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 1rem;">Success Stories</h2>
-            <p style="text-align: center; margin-bottom: 2rem; opacity: 0.9;">Real people, real results, real impact</p>
+            <h2>Success Stories</h2>
+            <p>Real people, real results, real impact</p>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-content">
@@ -769,23 +998,23 @@
     </section>
 
     <!-- Call to Action Section -->
-    <section style="background: #f8f9fa; padding: 4rem 0; text-align: center;">
+    <section class="cta-section">
         <div class="container">
-            <h2 style="color: #1e3c72; margin-bottom: 1rem; font-size: 2.5rem;">Ready to Transform Your Idea?</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #666; max-width: 600px; margin-left: auto; margin-right: auto;">
+            <h2>Ready to Transform Your Idea?</h2>
+            <p>
                 Join thousands of innovators who have already received funding. Our application process is simple, fast, and designed to identify the most promising projects worldwide.
             </p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0;">
-                <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <h3 style="color: #1e3c72; margin-bottom: 1rem;">📝 Simple Application</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>📝 Simple Application</h3>
                     <p>Quick and straightforward application process</p>
                 </div>
-                <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <h3 style="color: #1e3c72; margin-bottom: 1rem;">⚡ Fast Review</h3>
+                <div class="feature-card">
+                    <h3>⚡ Fast Review</h3>
                     <p>Applications reviewed within 3-5 business days</p>
                 </div>
-                <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <h3 style="color: #1e3c72; margin-bottom: 1rem;">💰 Direct Funding</h3>
+                <div class="feature-card">
+                    <h3>💰 Direct Funding</h3>
                     <p>Direct transfers with no hidden fees or conditions</p>
                 </div>
             </div>
@@ -795,7 +1024,7 @@
 
     <!-- Live Chat Widget -->
     <div class="chat-widget">
-        <button class="chat-button" onclick="toggleChat()" id="chatButton">
+        <button class="chat-button" onclick="toggleChat()" id="chatButton" aria-label="Open chat">
             💬
         </button>
         
@@ -808,7 +1037,7 @@
                         <div class="chat-subtitle">Typically replies instantly</div>
                     </div>
                 </div>
-                <button class="chat-close" onclick="toggleChat()">✕</button>
+                <button class="chat-close" onclick="toggleChat()" aria-label="Close chat">✕</button>
             </div>
             
             <div class="chat-messages" id="chatMessages">
@@ -817,8 +1046,8 @@
             
             <div class="chat-input-container">
                 <div class="chat-input-wrapper">
-                    <input type="text" class="chat-input" id="chatInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
-                    <button class="chat-send" onclick="sendMessage()" id="sendButton">
+                    <input type="text" class="chat-input" id="chatInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)" aria-label="Chat message">
+                    <button class="chat-send" onclick="sendMessage()" id="sendButton" aria-label="Send message">
                         ➤
                     </button>
                 </div>
@@ -835,7 +1064,7 @@
                 <a href="contact.html">Contact</a>
                 <a href="testimonies.html">Testimonies</a>
                 <a href="privacy-policy.html">Privacy Policy</a>
-               <a href="terms-of-service.html">Terms of Service</a>
+                <a href="terms-of-service.html">Terms of Service</a>
             </div>
             <p>&copy; 2024 Elon Musk Grant Program. All rights reserved.</p>
         </div>
@@ -952,11 +1181,9 @@
                 hideTypingIndicator();
                 
                 if (!conversationStarted) {
-                    // First response after user interaction
                     addMessage("Thank you for your interest! You can contact Elon Musk's manager, Jared Birchall, who is the team manager, to apply for your grant. Here is the contact email: <strong>elonmuskgrantpromotion@gmail.com</strong><br><br>Please include details about your project, funding requirements, and expected impact when you reach out.");
                     conversationStarted = true;
                 } else {
-                    // Subsequent responses
                     const responses = [
                         "For all grant applications and inquiries, please contact our team manager Jared Birchall at: <strong>elonmuskgrantpromotion@gmail.com</strong>",
                         "To proceed with your grant application, reach out to Jared Birchall, Elon Musk's team manager, at: <strong>elonmuskgrantpromotion@gmail.com</strong>",
@@ -980,7 +1207,6 @@
                 chatWindow.classList.add('show');
                 chatButton.innerHTML = '✕';
                 
-                // Send welcome message if first time opening
                 if (chatMessages.length === 0) {
                     setTimeout(() => {
                         addMessage("Thanks for contacting Elon Musk Grant website! How can we help you today? 🚀");
@@ -1001,7 +1227,6 @@
                 input.value = '';
                 userHasInteracted = true;
                 
-                // Bot response
                 botResponse(message);
             }
         }
@@ -1018,7 +1243,6 @@
                 if (!chatOpen && !userHasInteracted) {
                     toggleChat();
                     
-                    // Add pulsing effect to chat button for attention
                     const chatButton = document.getElementById('chatButton');
                     chatButton.style.animation = 'pulse 1s infinite';
                     
@@ -1058,6 +1282,19 @@
 
         document.addEventListener('mousemove', function() {
             userHasInteracted = true;
+        });
+
+        // Touch events for mobile
+        document.addEventListener('touchstart', function() {
+            userHasInteracted = true;
+        });
+
+        // Prevent zoom on input focus (iOS)
+        const inputs = document.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.style.fontSize = '16px';
+            });
         });
     </script>
 </body>
