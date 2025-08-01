@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Success Stories - Testimonials</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
-    <link rel="stylesheet" href="style.css">
-
     <style>
         * {
             margin: 0;
@@ -19,9 +17,9 @@
             line-height: 1.6;
             color: #333;
             background: #f8f9fa;
+            overflow-x: hidden;
         }
 
-        
         /* Navigation */
         nav {
             background: linear-gradient(135deg, #1e3c72, #2a5298);
@@ -39,12 +37,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+            padding: 0 1rem;
         }
 
         .logo {
             color: white;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: bold;
             text-decoration: none;
         }
@@ -54,53 +52,59 @@
             list-style: none;
             gap: 2rem;
         }
+
         .nav-links a {
             color: white;
             text-decoration: none;
             transition: color 0.3s;
             font-weight: 500;
+            font-size: 1rem;
         }
+
         .nav-links a:hover {
             color: #87ceeb;
         }
+
         .menu-toggle {
             display: none;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             cursor: pointer;
             padding: 0.5rem;
-        }
-        .language-selector {
-            color: white;
-            font-size: 0.9rem;
+            border: none;
+            background: none;
         }
 
         /* Hero Section */
         .testimonials-hero {
             background: linear-gradient(135deg, #1e3c72, #2a5298);
-            padding: 4rem 0;
+            padding: 6rem 0 4rem;
             text-align: center;
             color: white;
+            margin-top: 70px;
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 6vw, 3.5rem);
             margin-bottom: 1rem;
             animation: fadeInUp 1s ease-out;
+            line-height: 1.2;
         }
 
         .hero-content p {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 3vw, 1.3rem);
             max-width: 700px;
             margin: 0 auto;
             animation: fadeInUp 1s ease-out 0.3s both;
+            padding: 0 1rem;
+            line-height: 1.5;
         }
 
         /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1rem;
         }
 
         /* Stats Bar */
@@ -112,27 +116,28 @@
         }
 
         .stats-row {
-            display: flex;
-            justify-content: space-around;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1.5rem;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
         }
 
         .stat-item {
             text-align: center;
+            padding: 1rem 0.5rem;
         }
 
         .stat-number {
-            font-size: 2.5rem;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
             font-weight: bold;
             color: #1e3c72;
             display: block;
+            line-height: 1.2;
         }
 
         .stat-label {
             color: #666;
-            font-size: 1rem;
+            font-size: clamp(0.8rem, 2vw, 1rem);
             margin-top: 0.5rem;
         }
 
@@ -144,23 +149,26 @@
         }
 
         .filter-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 1rem;
-            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .filter-btn {
             background: transparent;
             border: 2px solid #1e3c72;
             color: #1e3c72;
-            padding: 0.8rem 1.5rem;
+            padding: 0.8rem 1rem;
             border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s;
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .filter-btn:hover,
@@ -172,18 +180,18 @@
 
         /* Testimonials Grid */
         .testimonials-section {
-            padding: 4rem 0;
+            padding: 3rem 0;
             background: #f8f9fa;
         }
 
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
             margin-top: 2rem;
         }
 
-        /* New Testimonial Card Design */
+        /* Testimonial Card Design */
         .testimonial-card {
             background: white;
             border-radius: 16px;
@@ -237,24 +245,26 @@
 
         .user-info {
             flex-grow: 1;
+            min-width: 0;
         }
 
         .user-name {
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
             color: #2d3748;
             margin-bottom: 0.25rem;
         }
 
         .user-title {
             color: #718096;
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
             margin-bottom: 0.5rem;
+            line-height: 1.3;
         }
 
         .user-location {
             color: #a0aec0;
-            font-size: 0.85rem;
+            font-size: clamp(0.7rem, 2vw, 0.85rem);
             display: flex;
             align-items: center;
             gap: 0.3rem;
@@ -264,11 +274,12 @@
             display: flex;
             gap: 2px;
             margin-top: 0.5rem;
+            flex-wrap: wrap;
         }
 
         .star {
             color: #ffd700;
-            font-size: 1rem;
+            font-size: clamp(0.8rem, 2vw, 1rem);
         }
 
         .testimonial-content {
@@ -277,7 +288,7 @@
 
         .testimonial-text {
             color: #4a5568;
-            font-size: 0.95rem;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
             line-height: 1.6;
             margin-bottom: 1rem;
         }
@@ -294,13 +305,14 @@
             font-weight: 600;
             color: #2d3748;
             margin-bottom: 0.5rem;
-            font-size: 0.95rem;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
         }
 
         .project-description {
             color: #718096;
-            font-size: 0.85rem;
+            font-size: clamp(0.8rem, 2vw, 0.85rem);
             margin-bottom: 0.5rem;
+            line-height: 1.4;
         }
 
         .grant-amount {
@@ -309,7 +321,7 @@
             padding: 0.4rem 0.8rem;
             border-radius: 15px;
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: clamp(0.75rem, 2vw, 0.85rem);
             display: inline-block;
         }
 
@@ -317,60 +329,154 @@
         .impact-section {
             background: linear-gradient(135deg, #1e3c72, #2a5298);
             color: white;
-            padding: 4rem 0;
+            padding: 3rem 0;
             text-align: center;
+        }
+
+        .impact-section h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .impact-section p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
         }
 
         .impact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
             margin-top: 2rem;
         }
 
         .impact-item {
-            padding: 1.5rem;
+            padding: 1rem;
         }
 
         .impact-number {
-            font-size: 2.8rem;
+            font-size: clamp(2rem, 5vw, 2.8rem);
             font-weight: bold;
             margin-bottom: 0.5rem;
             background: linear-gradient(45deg, #ff6b35, #f7931e);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            line-height: 1.2;
         }
 
         .impact-label {
-            font-size: 1.1rem;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
             opacity: 0.9;
         }
 
         /* Call to Action */
         .cta-section {
             background: white;
-            padding: 4rem 0;
+            padding: 3rem 0;
             text-align: center;
+        }
+
+        .cta-section h2 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            line-height: 1.3;
+        }
+
+        .cta-section p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            margin-bottom: 2rem;
+            color: #666;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            padding: 0 1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            padding: 2rem 1rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .feature-card h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+        }
+
+        .feature-card p {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            color: #666;
         }
 
         .cta-button {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 15px 40px;
+            padding: 15px 30px;
             border: none;
             border-radius: 50px;
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
             font-weight: bold;
             text-decoration: none;
             display: inline-block;
             transition: transform 0.3s, box-shadow 0.3s;
             margin-top: 1rem;
+            min-height: 50px;
+            min-width: 150px;
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            padding: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: #87ceeb;
+        }
+
+        .footer p {
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            margin-top: 0.5rem;
+            opacity: 0.8;
+            padding: 0 1rem;
         }
 
         /* Animations */
@@ -394,6 +500,15 @@
             .menu-toggle {
                 display: block;
             }
+            
+            .nav-container {
+                padding: 0 1rem;
+            }
+            
+            .logo {
+                font-size: 1.3rem;
+            }
+            
             .nav-links {
                 display: none;
                 position: absolute;
@@ -404,129 +519,148 @@
                 flex-direction: column;
                 padding: 1rem 0;
                 box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                gap: 0;
             }
+            
             .nav-links.show {
                 display: flex;
             }
+            
             .nav-links li {
                 text-align: center;
-                padding: 0.5rem 0;
+                padding: 0.8rem 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
             }
-            .hero-content h1 {
-                font-size: 2.5rem;
+            
+            .nav-links li:last-child {
+                border-bottom: none;
             }
+            
+            .nav-links a {
+                font-size: 1.1rem;
+                padding: 0.5rem 1rem;
+                display: block;
+            }
+
+            .testimonials-hero {
+                margin-top: 60px;
+                padding: 4rem 0 3rem;
+            }
+
+            .stats-row {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+
+            .stat-item {
+                padding: 0.8rem 0.3rem;
+            }
+
+            .filter-container {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+
             .testimonials-grid {
                 grid-template-columns: 1fr;
-            }
-            .stats-row {
-                flex-direction: column;
                 gap: 1rem;
             }
-            .filter-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
+
             .card-header {
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
+                gap: 0.8rem;
             }
-        }
 
-        /* Footer */
-        .footer {
-            background: #1e3c72;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
+            .user-avatar {
+                width: 45px;
+                height: 45px;
+            }
 
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: #87ceeb;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-            
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: linear-gradient(135deg, #1e3c72, #2a5298);
-                flex-direction: column;
-                padding: 1rem 0;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            }
-            
-            .nav-links.show {
-                display: flex;
-            }
-            
-            .nav-links li {
-                text-align: center;
-                padding: 0.5rem 0;
-            }
-            
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            
-            .content-with-image {
-                grid-template-columns: 1fr;
-            }
-            
-            .trust-logos {
+            .impact-grid {
+                grid-template-columns: 1fr 1fr;
                 gap: 1rem;
             }
-            
-            .trust-logo {
-                padding: 0.5rem 1rem;
-                font-size: 1rem;
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
+
+            .footer-links {
+                gap: 0.5rem;
+            }
+
+            .footer-links a {
+                padding: 0.3rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 0.5rem;
+            }
+
+            .container {
+                padding: 0 0.5rem;
+            }
+
+            .testimonials-hero {
+                padding: 3rem 0 2rem;
+            }
+
+            .stats-row {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.5rem;
+            }
+
+            .stat-item {
+                padding: 0.5rem 0.2rem;
+            }
+
+            .testimonial-card {
+                padding: 1rem;
+            }
+
+            .impact-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.8rem;
+            }
+
+            .impact-item {
+                padding: 0.5rem;
+            }
+        }
+
+        /* Touch-friendly improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .filter-btn,
+            .cta-button {
+                min-height: 48px;
+                padding: 12px 20px;
             }
             
-            .testimonials-grid {
-                grid-template-columns: 1fr;
+            .nav-links a {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .menu-toggle {
+                min-height: 44px;
+                min-width: 44px;
             }
         }
     </style>
 </head>
 <body>
-
-    </style>
-</head>
-<body>
-
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
@@ -537,16 +671,17 @@
                 <li><a href="contact.html">Contact Us</a></li>
                 <li><a href="testimonies.html" style="color: #87ceeb;">Testimonies</a></li>
             </ul>
-            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
         </div>
     </nav>
 
-
     <!-- Hero Section -->
     <section class="testimonials-hero">
-        <div class="hero-content">
-            <h1>Success Stories</h1>
-            <p>Discover how our grant program has transformed lives and sparked innovation across 195 countries worldwide</p>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Success Stories</h1>
+                <p>Discover how our grant program has transformed lives and sparked innovation across 195 countries worldwide</p>
+            </div>
         </div>
     </section>
 
@@ -596,7 +731,7 @@
                 <div class="testimonial-card fade-in" data-category="energy">
                     <div class="card-header">
                         <div class="user-avatar">
-                            <img src="data:image/jpeg;base64,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" alt="Sarah Martinez" onerror="this.parentNode.innerHTML='<div class=user-avatar-placeholder>SM</div>';">
+                            <div class="user-avatar-placeholder">SM</div>
                         </div>
                         <div class="user-info">
                             <div class="user-name">Sarah Martinez</div>
@@ -613,7 +748,7 @@
                     </div>
                     <div class="testimonial-content">
                         <div class="testimonial-text">
-                            "I cannot express enough gratitude! The grant was the catalyst that transformed my solar energy idea into a thriving business. Today, we're powering over 500 homes with clean, renewable energy. This didn't just fund my project - it funded my dreams and countless families now enjoying clean energy."
+                            "I cannot express enough gratitude! The grant was the catalyst that transformed my solar energy idea into a thriving business. Today, we're powering over 500 homes with clean, renewable energy."
                         </div>
                         <div class="project-info">
                             <div class="project-title">SolarTech Solutions</div>
@@ -627,7 +762,7 @@
                 <div class="testimonial-card fade-in" data-category="education">
                     <div class="card-header">
                         <div class="user-avatar">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face" alt="Kwame Mensah" onerror="this.parentNode.innerHTML='<div class=user-avatar-placeholder>KM</div>';">
+                            <div class="user-avatar-placeholder">KM</div>
                         </div>
                         <div class="user-info">
                             <div class="user-name">Kwame Mensah</div>
@@ -644,7 +779,7 @@
                     </div>
                     <div class="testimonial-content">
                         <div class="testimonial-text">
-                            "Your grant enabled me to develop an educational app that's now transforming lives across Africa. Over 10,000 students are using our platform, accessing quality education that was previously unavailable. You've created a ripple effect of knowledge and opportunity throughout the continent."
+                            "Your grant enabled me to develop an educational app that's now transforming lives across Africa. Over 10,000 students are using our platform, accessing quality education that was previously unavailable."
                         </div>
                         <div class="project-info">
                             <div class="project-title">EduAfrica Mobile App</div>
@@ -658,7 +793,7 @@
                 <div class="testimonial-card fade-in" data-category="healthcare">
                     <div class="card-header">
                         <div class="user-avatar">
-                            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=60&h=60&fit=crop&crop=face" alt="Ananya Patel" onerror="this.parentNode.innerHTML='<div class=user-avatar-placeholder>AP</div>';">
+                            <div class="user-avatar-placeholder">AP</div>
                         </div>
                         <div class="user-info">
                             <div class="user-name">Ananya Patel</div>
@@ -675,7 +810,7 @@
                     </div>
                     <div class="testimonial-content">
                         <div class="testimonial-text">
-                            "Your grant has literally saved lives! My AI-powered healthcare diagnostic tool is now helping doctors in remote areas of India diagnose diseases accurately and quickly. What started as an idea has become a lifeline for thousands of patients who previously had no access to quality healthcare."
+                            "Your grant has literally saved lives! My AI-powered healthcare diagnostic tool is now helping doctors in remote areas of India diagnose diseases accurately and quickly."
                         </div>
                         <div class="project-info">
                             <div class="project-title">AI HealthDiagnostic</div>
@@ -689,10 +824,7 @@
                 <div class="testimonial-card fade-in" data-category="tech">
                     <div class="card-header">
                         <div class="user-avatar">
-                         <div class="user-avatar">
-    <img src="https://www.shutterstock.com/image-photo/handsome-blue-eyed-man-smiling-600nw-1054844918.jpg" alt="James Liu" onerror="this.parentNode.innerHTML='<div class=user-avatar-placeholder>JL</div>';">
-</div>
-
+                            <div class="user-avatar-placeholder">JL</div>
                         </div>
                         <div class="user-info">
                             <div class="user-name">James Liu</div>
@@ -709,7 +841,7 @@
                     </div>
                     <div class="testimonial-content">
                         <div class="testimonial-text">
-                            "You've changed everything for me and for sustainable agriculture! With your grant, I developed SmartFarm AI, which is now helping over 200 farmers optimize their crops while reducing environmental impact by 40%. Your support has made my dreams come true and is actively contributing to food security."
+                            "You've changed everything for me and for sustainable agriculture! With your grant, I developed SmartFarm AI, which is now helping over 200 farmers optimize their crops while reducing environmental impact by 40%."
                         </div>
                         <div class="project-info">
                             <div class="project-title">SmartFarm AI</div>
@@ -723,10 +855,7 @@
                 <div class="testimonial-card fade-in" data-category="energy">
                     <div class="card-header">
                         <div class="user-avatar">
-                           <div class="user-avatar">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgZCOT3rBZrc9jdJxWOmEy0FRyQ2NNyWn01w&s" alt="Lars Olsen" onerror="this.parentNode.innerHTML='<div class=user-avatar-placeholder>LO</div>';">
-</div>
-
+                            <div class="user-avatar-placeholder">LO</div>
                         </div>
                         <div class="user-info">
                             <div class="user-name">Lars Olsen</div>
@@ -743,7 +872,7 @@
                     </div>
                     <div class="testimonial-content">
                         <div class="testimonial-text">
-                            "Your belief in clean energy innovation has transformed the Arctic! Your grant allowed me to develop wind energy solutions specifically designed for extreme cold climates. Our technology is now powering remote communities across Northern Europe and Canada, illuminating the darkest, coldest corners of our planet."
+                            "Your belief in clean energy innovation has transformed the Arctic! Your grant allowed me to develop wind energy solutions specifically designed for extreme cold climates."
                         </div>
                         <div class="project-info">
                             <div class="project-title">Arctic Wind Solutions</div>
@@ -757,10 +886,7 @@
                 <div class="testimonial-card fade-in" data-category="education">
                     <div class="card-header">
                         <div class="user-avatar">
-                            <div class="user-avatar">
-    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=60&h=60&fit=crop&crop=face" alt="Maria Rodriguez" onerror="this.parentNode.innerHTML='<div class=user-avatar-placeholder>MR</div>';">
-</div>
-
+                            <div class="user-avatar-placeholder">MR</div>
                         </div>
                         <div class="user-info">
                             <div class="user-name">Maria Rodriguez</div>
@@ -777,80 +903,12 @@
                     </div>
                     <div class="testimonial-content">
                         <div class="testimonial-text">
-                            "Your grant has opened doors to the future for hundreds of young people in Mexico City. My CodeMéxico program now teaches programming skills to kids who never had access to technology education. Many of our graduates have secured well-paying tech jobs, breaking the cycle of poverty in their families."
+                            "Your grant has opened doors to the future for hundreds of young people in Mexico City. My CodeMéxico program now teaches programming skills to kids who never had access to technology education."
                         </div>
                         <div class="project-info">
                             <div class="project-title">CodeMéxico Initiative</div>
                             <div class="project-description">Free coding education for underserved youth</div>
                             <div class="grant-amount">Grant: $3,200</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 7 -->
-                <div class="testimonial-card fade-in" data-category="healthcare">
-                    <div class="card-header">
-                        <div class="user-avatar">
-                           <div class="user-avatar">
-    <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=60&h=60&fit=crop&crop=face" alt="Dr. Amara Nkomo" onerror="this.parentNode.innerHTML='<div class=user-avatar-placeholder>DN</div>';">
-</div>
-
-                        </div>
-                        <div class="user-info">
-                            <div class="user-name">Dr. Amara Nkomo</div>
-                            <div class="user-title">Mobile Healthcare Director</div>
-                            <div class="user-location">🇿🇦 Cape Town, South Africa</div>
-                            <div class="star-rating">
-                                <span class="star">⭐</span>
-                                <span class="star">⭐</span>
-                                <span class="star">⭐</span>
-                                <span class="star">⭐</span>
-                                <span class="star">⭐</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-content">
-                        <div class="testimonial-text">
-                            "Your grant has brought hope to the most remote corners of South Africa! Our mobile health clinics now serve over 50 rural communities, providing essential medical care to people who had to travel hundreds of kilometers to see a doctor. We've performed thousands of consultations, vaccinations, and health screenings."
-                        </div>
-                        <div class="project-info">
-                            <div class="project-title">Mobile Health Clinics</div>
-                            <div class="project-description">Healthcare delivery to rural communities</div>
-                            <div class="grant-amount">Grant: $8,000</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 8 -->
-                <div class="testimonial-card fade-in" data-category="tech">
-                    <div class="card-header">
-                        <div class="user-avatar">
-                           <div class="user-avatar">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY5q85KI8p1G0dIOul06OuBaI7QiPBIGacvA&s" alt="Yuki Tanaka" onerror="this.parentNode.innerHTML='<div class=user-avatar-placeholder>YT</div>';">
-</div>
-
-                        </div>
-                        <div class="user-info">
-                            <div class="user-name">Yuki Tanaka</div>
-                            <div class="user-title">Robotics Engineer</div>
-                            <div class="user-location">🇯🇵 Tokyo, Japan</div>
-                            <div class="star-rating">
-                                <span class="star">⭐</span>
-                                <span class="star">⭐</span>
-                                <span class="star">⭐</span>
-                                <span class="star">⭐</span>
-                                <span class="star">⭐</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-content">
-                        <div class="testimonial-text">
-                            "Your grant has brought joy and comfort to thousands of elderly people in Japan! My ElderCare robots provide companionship, medication reminders, and emergency assistance to seniors living alone. The smiles on their faces when they interact with our robots is priceless. You've addressed one of Japan's biggest challenges."
-                        </div>
-                        <div class="project-info">
-                            <div class="project-title">ElderCare Robotics</div>
-                            <div class="project-description">AI companions for elderly care</div>
-                            <div class="grant-amount">Grant: $5,500</div>
                         </div>
                     </div>
                 </div>
@@ -867,10 +925,8 @@
     <!-- Impact Numbers Section -->
     <section class="impact-section">
         <div class="container">
-            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Global Impact by the Numbers</h2>
-            <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem;">
-                Every grant creates a ripple effect of positive change across communities worldwide
-            </p>
+            <h2>Global Impact by the Numbers</h2>
+            <p>Every grant creates a ripple effect of positive change across communities worldwide</p>
             <div class="impact-grid">
                 <div class="impact-item">
                     <div class="impact-number">2.5M+</div>
@@ -895,32 +951,71 @@
     <!-- Call to Action Section -->
     <section class="cta-section">
         <div class="container">
-            <h2 style="color: #1e3c72; margin-bottom: 1rem; font-size: 2.5rem;">Your Success Story Awaits</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #666; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Join thousands of innovators who have transformed their dreams into reality. Your breakthrough idea could be the next success story featured here.
-            </p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0;">
-                <div style="background: #f8f9fa; padding: 2rem; border-radius: 15px; text-align: center;">
-                    <div style="font-size: 2rem; margin-bottom: 1rem;">🚀</div>
-                    <h3 style="color: #1e3c72; margin-bottom: 1rem;">Submit Your Idea</h3>
+            <h2>Your Success Story Awaits</h2>
+            <p>Join thousands of innovators who have transformed their dreams into reality. Your breakthrough idea could be the next success story featured here.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>🚀 Submit Your Idea</h3>
                     <p>Share your innovative project with our review committee</p>
                 </div>
-                <div style="background: #f8f9fa; padding: 2rem; border-radius: 15px; text-align: center;">
-                    <div style="font-size: 2rem; margin-bottom: 1rem;">📋</div>
-                    <h3 style="color: #1e3c72; margin-bottom: 1rem;">Quick Review</h3>
+                <div class="feature-card">
+                    <h3>📋 Quick Review</h3>
                     <p>Get a decision within 3-5 business days</p>
                 </div>
-                <div style="background: #f8f9fa; padding: 2rem; border-radius: 15px; text-align: center;">
-                    <div style="font-size: 2rem; margin-bottom: 1rem;">💰</div>
-                    <h3 style="color: #1e3c72; margin-bottom: 1rem;">Receive Funding</h3>
+                <div class="feature-card">
+                    <h3>💰 Receive Funding</h3>
                     <p>Get direct funding to bring your vision to life</p>
                 </div>
             </div>
-            <a href="#" class="cta-button">Apply for Your Grant Today</a>
+            <a href="contact.html" class="cta-button">Apply for Your Grant Today</a>
         </div>
     </section>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="testimonies.html" style="color: #87ceeb;">Testimonies</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+            </div>
+            <p>&copy; 2024 Elon Musk Grant Program. All rights reserved.</p>
+            <p>
+                Follow us: 
+                <a href="#" style="color: #87ceeb; text-decoration: none;">X (Twitter)</a> | 
+                <a href="#" style="color: #87ceeb; text-decoration: none;">Instagram</a> | 
+                <a href="#" style="color: #87ceeb; text-decoration: none;">Facebook</a>
+            </p>
+        </div>
+    </footer>
+
     <script>
+        // Mobile menu toggle function
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('show');
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('show');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const nav = document.querySelector('nav');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (!nav.contains(e.target) && navLinks.classList.contains('show')) {
+                navLinks.classList.remove('show');
+            }
+        });
+
         // Filter functionality
         function filterTestimonials(category) {
             const cards = document.querySelectorAll('.testimonial-card');
@@ -950,7 +1045,7 @@
 
         // Load more testimonials function
         function loadMoreTestimonials() {
-            alert('More inspiring success stories are being added regularly! Check back soon for new testimonials.');
+            alert('More inspiring success stories are being added regularly! Check back soon for new testimonials featuring innovators from every continent.');
         }
 
         // Smooth scrolling and animations
@@ -977,7 +1072,7 @@
             const cards = document.querySelectorAll('.testimonial-card');
             cards.forEach(card => {
                 card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
                 });
                 
                 card.addEventListener('mouseleave', function() {
@@ -985,92 +1080,13 @@
                 });
             });
         });
-    </script>
-    <script>
-// Mobile menu toggle function
-function toggleMenu() {
-    const navLinks = document.querySelector('.nav-links');
-    navLinks.classList.toggle('show');
-}
 
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        document.querySelector('.nav-links').classList.remove('show');
-    });
-});
-
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-    const nav = document.querySelector('nav');
-    const navLinks = document.querySelector('.nav-links');
-    if (!nav.contains(e.target) && navLinks.classList.contains('show')) {
-        navLinks.classList.remove('show');
-    }
-});
-</script>
-
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About Us</a>
-                <a href="contact.html">Contact</a>
-                <a href="testimonies.html">Testimonies</a>
-                <a href="privacy-policy.html">Privacy Policy</a>
-               <a href="terms-of-service.html">Terms of Service</a>
-            </div>
-            <p>&copy; 2024 Elon Musk Grant Program. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile menu toggle function
-        function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('show');
-        }
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.querySelector('.nav-links').classList.remove('show');
-            });
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            const nav = document.querySelector('nav');
-            const navLinks = document.querySelector('.nav-links');
-            
-            if (!nav.contains(e.target) && navLinks.classList.contains('show')) {
-                navLinks.classList.remove('show');
+        // Prevent horizontal scroll
+        document.addEventListener('touchmove', function(e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
             }
-        });
-
-        // Smooth scrolling animation for stats
-        function animateStats() {
-            const statNumbers = document.querySelectorAll('.stat-number');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.animation = 'fadeInUp 0.8s ease-out';
-                    }
-                });
-            });
-
-            statNumbers.forEach(stat => observer.observe(stat));
-        }
-
-        // Initialize animations when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            animateStats();
-        });
+        }, { passive: false });
     </script>
-</body>
-</html>
-
 </body>
 </html>
