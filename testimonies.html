@@ -215,22 +215,29 @@
         }
 
         .user-avatar {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             overflow: hidden;
             flex-shrink: 0;
             background: #e9ecef;
-            border: 2px solid #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border: 3px solid #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            position: relative;
         }
 
         .user-avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.3s ease;
         }
 
+        .user-avatar:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Fallback for when image fails to load */
         .user-avatar-placeholder {
             width: 100%;
             height: 100%;
@@ -241,6 +248,21 @@
             color: white;
             font-weight: bold;
             font-size: 1.2rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .user-avatar img[src=""],
+        .user-avatar img:not([src]) {
+            display: none;
+        }
+
+        .user-avatar img[src=""]+.user-avatar-placeholder,
+        .user-avatar img:not([src])+.user-avatar-placeholder {
+            opacity: 1;
         }
 
         .user-info {
@@ -574,8 +596,8 @@
             }
 
             .user-avatar {
-                width: 45px;
-                height: 45px;
+                width: 50px;
+                height: 50px;
             }
 
             .impact-grid {
@@ -731,6 +753,7 @@
                 <div class="testimonial-card fade-in" data-category="energy">
                     <div class="card-header">
                         <div class="user-avatar">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyrXwxF7AfSg4xX6iT2DJL6WG8KVFBkIvb-Q&s" alt="Sarah Martinez" onerror="this.style.display='none'; this.nextElementSibling.style.opacity='1';">
                             <div class="user-avatar-placeholder">SM</div>
                         </div>
                         <div class="user-info">
@@ -762,6 +785,7 @@
                 <div class="testimonial-card fade-in" data-category="education">
                     <div class="card-header">
                         <div class="user-avatar">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face&auto=format" alt="Kwame Mensah" onerror="this.style.display='none'; this.nextElementSibling.style.opacity='1';">
                             <div class="user-avatar-placeholder">KM</div>
                         </div>
                         <div class="user-info">
@@ -793,6 +817,7 @@
                 <div class="testimonial-card fade-in" data-category="healthcare">
                     <div class="card-header">
                         <div class="user-avatar">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face&auto=format" alt="Ananya Patel" onerror="this.style.display='none'; this.nextElementSibling.style.opacity='1';">
                             <div class="user-avatar-placeholder">AP</div>
                         </div>
                         <div class="user-info">
@@ -824,6 +849,7 @@
                 <div class="testimonial-card fade-in" data-category="tech">
                     <div class="card-header">
                         <div class="user-avatar">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face&auto=format" alt="James Liu" onerror="this.style.display='none'; this.nextElementSibling.style.opacity='1';">
                             <div class="user-avatar-placeholder">JL</div>
                         </div>
                         <div class="user-info">
@@ -855,6 +881,7 @@
                 <div class="testimonial-card fade-in" data-category="energy">
                     <div class="card-header">
                         <div class="user-avatar">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face&auto=format" alt="Lars Olsen" onerror="this.style.display='none'; this.nextElementSibling.style.opacity='1';">
                             <div class="user-avatar-placeholder">LO</div>
                         </div>
                         <div class="user-info">
@@ -886,6 +913,7 @@
                 <div class="testimonial-card fade-in" data-category="education">
                     <div class="card-header">
                         <div class="user-avatar">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face&auto=format" alt="Maria Rodriguez" onerror="this.style.display='none'; this.nextElementSibling.style.opacity='1';">
                             <div class="user-avatar-placeholder">MR</div>
                         </div>
                         <div class="user-info">
